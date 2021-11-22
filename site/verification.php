@@ -12,15 +12,15 @@
     </head> 
     <body>
         <?php
-
+        session_start();
         if (isset($_POST['username']) && isset($_POST['password'])){
 
             // connexion a la base de donnée
+            $bd_host = "localhost";
+            $bd_nom = "ap2eme";
             $bd_username = "root";
             $bd_password = "";
-            $bd_nom = "ap2eme";
-            $bd_host = "localhost";
-            $bd = mysqli_connect ($bd_host,$bd_username,$bd_password, $bd_nom) or die ("Je n'arrive pas à me connecter à la BDD");
+            $bd = new mysqli ($bd_host,$bd_username,$bd_password,$bd_nom) or die ("Je n'arrive pas à me connecter à la BDD");
 
             // instruction pour eviter toute injection SQL et XSS
             $username = mysqli_real_escape_string($bd,htmlspecialchars($_POST['username']));
@@ -44,7 +44,7 @@
 
             }
         }
-        mysqli_close($bd); // fermer la connexion avec la BDD
+        
 
         ?>
     </body>
