@@ -9,9 +9,13 @@
         <!-- Lien pour CSS-->
         <link rel="stylesheet" href="css/style.css">
         
-    </head>
-
-        
-
+    </head>       
+    <body>
+        <h1>CONNECTEZ VOUS POUR ACCEDER A VOTRE ESPACE </h1>
+        <form action="verification.php" method="POST">
+            <label>
+        </form>
+            
+    </body>
 
 </html>
