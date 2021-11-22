@@ -20,7 +20,7 @@
             $bd_password = "";
             $bd_nom = "ap2eme";
             $bd_host = "localhost";
-            $bd = mysqli_connect($bd_host, $bd_username, $bd_password, $bd_name) or die ("Je n'arrive pas à me connecter à la BDD");
+            $bd = mysqli_connect ($bd_host,$bd_username,$bd_password, $bd_nom) or die ("Je n'arrive pas à me connecter à la BDD");
 
             // instruction pour eviter toute injection SQL et XSS
             $username = mysqli_real_escape_string($bd,htmlspecialchars($_POST['username']));
@@ -28,13 +28,13 @@
 
             // vérification du login et mdp avec requete SQL
             if($username !== "" && $password !== ""){
-                $requete ="SELECT count(*) FROM utilisateur 
-                WHERE nomUtilisateur ='".$username."' and mdpUtilisateur='".$password."'";
+                $requete ="SELECT count(*) FROM utilisateur
+                WHERE nomUtilisateur =.$username and mdpUtilisateur='".$password."'";
 
                 $exec_requete = mysqli_query($bd,$requete);
                 $count = $reponse ['count(*)'];
                 
-                if($count!=0){ // nom d'utilisateur et mot de passe correctes
+                if($count!=0){ // nom d'utilisateur ou mot de passe correctes
                     $_SESSION['username'] = $username;
                     header('Location: index.php');
                 }

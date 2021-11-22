@@ -15,6 +15,8 @@
     <body>
         <h1 class="titre">CONNECTEZ-VOUS POUR ACCEDER A VOTRE ESPACE </h1>
 
+<hr>
+
 <!-- Formulaire de connexion -->
         <form action="verification.php" method="POST">
         <div class="form-group">
@@ -28,21 +30,15 @@
                 </div>
         </div>
 
-
-            <button type="submit" class="btn btn-primary">Valider</button>
-
-        <?php
-                if(isset($_POST['erreur'])){
-                    $err = $_POST['erreur'];
-                    if($err == 1 || $err == 2){
-                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect </p>";
-                    }
-                }
-        ?>
-
-
+        <div class="bouton">
+            <button type="submit" class="btn btn-outline-primary">Valider</button>
+        </div>
         </form>
-            
+<!--Fin formulaire de connexion-->        
+
     </body>
 
+
+    <footer> <p>Site réalisé par Nolan Malherbe, Nicolas De Bruycker et Thomas Ribeiro.</p>
+    </footer>
 </html>
