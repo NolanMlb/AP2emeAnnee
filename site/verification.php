@@ -6,12 +6,16 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1, user-scalable=no">
 
-        <!-- Lien pour CSS-->
-        <link rel="stylesheet" href="css/style.css">
+       <!--Lien pour CSS-->        
+       <link rel="stylesheet" href="css/style.css">
         
     </head> 
     <body>
         <?php
+        if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
+            $racine="..";
+        }
+        include "$racine/site/verification.php";
         session_start();
         if (isset($_POST['username']) && isset($_POST['password'])){
 
@@ -39,9 +43,9 @@
                     header('Location: index.php');
                 }
                 else{
-                    echo"<p style:color='red'>Mot de passe ou utilisateur incorrect</p>";
+                    echo"<p>Mot de passe ou utilisateur incorrect</p>";
                 }
-
+                
             }
         }
         
