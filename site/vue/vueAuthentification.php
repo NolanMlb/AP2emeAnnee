@@ -1,4 +1,7 @@
+<link rel="stylesheet" href="css/style.css">
 <!-- Formulaire de connexion -->
+<h1 class="titre">CONNECTEZ-VOUS POUR ACCEDER A VOTRE ESPACE </h1>
+<hr>
         <form action="verification.php" method="POST">
         <div class="form-group">
                 <div class="form-floating mb-3">
@@ -10,9 +13,19 @@
                     <label for="floatingPassword">Mot de passe</label>
                 </div>
         </div>
-
+        <br>
+        Test :
+        login : niquo<br>
+        mdp : lic
         <div class="bouton">
             <button type="submit" class="btn btn-outline-primary">Valider</button>
+            <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==1 || $err==2)
+                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                }
+                ?>
+        
         </div>
         </form>
-        

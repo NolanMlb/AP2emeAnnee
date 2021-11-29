@@ -20,6 +20,13 @@
     if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
         $racine="..";
     }
+    
+    session_start();
+    if($_SESSION['username'] !== ""){
+        $user = $_SESSION['username'];
+        // afficher un message
+        echo "Bonjour $user, vous êtes connecté";
+    }
     include "$racine/site/vue/vueAuthentification.php";
     include "$racine/site/vue/pied.html";
     include "$racine/site/modele/bd.inc.php";

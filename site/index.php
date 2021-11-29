@@ -1,7 +1,8 @@
 <?php
-include "$racine/site/verification.php";
-include "$racine/site/vue/vueAuthentification.php";
-include "$racine/site/vue/pied.html";
-echo $racine;
+include "getRacine.php";
+include "$racine/vue/vueAuthentification.php";
+include "$racine/vue/pied.html";
+include "$racine/modele/bd.inc.php";
+include "$racine/verification.php";
+launch_BDD();
 ?>
-     
