@@ -19,13 +19,5 @@
         mdp : lic
         <div class="bouton">
             <button type="submit" class="btn btn-outline-primary" name="valider">Valider</button>
-            <?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==1 || $err==2)
-                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
-                }
-                ?>
-        
         </div>
         </form>
