@@ -15,8 +15,8 @@
         </div>
         <br>
         Test :
-        login : niquo<br>
-        mdp : lic
+        login : DeBruycker<br>
+        mdp : DeBruycker
         <div class="bouton">
             <button type="submit" class="btn btn-outline-primary" name="valider">Valider</button>
         </div>
