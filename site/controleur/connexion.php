@@ -74,8 +74,10 @@ if(isset($_POST['valider'])){
                     include "$racine/vue/vueAuthentification.html";
                     include "$racine/vue/pied.html";
                     include "$racine/modele/bd.inc.php";
+                    include "$racine/vue/accueil.html";
                     echo "Vous êtes à présent connecté !";
-                    goto "$racine/vue/accueil.php";
+                    header('Location: /accueil.html');
+                    exit();
                 }
             }
         }
