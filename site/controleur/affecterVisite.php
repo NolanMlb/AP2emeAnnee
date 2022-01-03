@@ -4,13 +4,18 @@
     include "$racine/modele/bd.inc.php";
     include "$racine/controleur/connexion.php";
 
-    //interprétation pour la base de donnée//
-    $sql="INSERT INTO 'intervention' ('idIntervention', 'dateVisite', 'heureVisite', 'idClient', 'idTechnicien') VALUES ('','$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]'";
 
-    if (!mysqli_query($mysqli,$sql)){
-        die('Impossible d’ajouter cet enregistrement');
+    //interprétation pour la base de donnée
+    $mysqli = new mysqli("localhost", "root", "root", "ap2eme");
+    $mysqli -> set_charset("utf-8");
+    $requete="INSERT INTO intervention VALUES ('','$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]')";
+    
+    $resultat = $mysqli->query($requete);
+    if ($resultat){
+        echo"Requete a été ajouté";
     }
     else{
-        echo "L’enregistrement est ajouté ";
+        echo "non";
     }
 ?>
+<a href="vue/accueil.html">Retour a la page d'accueil</a>
