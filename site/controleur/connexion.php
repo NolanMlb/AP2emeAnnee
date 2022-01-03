@@ -76,7 +76,7 @@ if(isset($_POST['valider'])){
                     include "$racine/modele/bd.inc.php";
                     include "$racine/vue/accueil.html";
                     echo "Vous êtes à présent connecté !";
-                    header('Location: /accueil.html');
+                    header('Location: /AP2emeAnnee%20copie%202/site/vue/accueil.html');
                     exit();
                 }
             }
