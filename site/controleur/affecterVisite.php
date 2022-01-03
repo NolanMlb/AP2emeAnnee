@@ -10,7 +10,7 @@
     $mysqli -> set_charset("utf-8");
     $requete="INSERT INTO intervention VALUES ('','$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]')";
     
-    $resultat = $mysqli->query($requete);
+    $resultat = mysqli_query($mysqli,$requete);
     if ($resultat){
         echo"Requete a été ajouté";
     }

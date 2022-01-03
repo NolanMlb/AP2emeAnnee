@@ -10,6 +10,7 @@
 <form action="/AP2emeAnnee/site/controleur/rechercheClient.php" method="POST">
 
 	Numéro de client : <input type="text" name="numC" placeholder="num" value="<?= $numC ?>" /><br/>
+    <input type="submit" value = "Valider">
 
 </form>
 </html>
