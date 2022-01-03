@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
         <meta charset="UTF-8">
         <!-- Responsive meta -->
@@ -8,17 +9,30 @@
      <!-- Lien pour CSS-->
      <link rel="stylesheet" href="css/style.css">
      
- </head> 
+</head> 
  
  <body>
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Liste des clients">
-    <input type="button" onclick="window.location.href='vueListeInterventions.php'" value="Liste des interventions">
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Rechercher un client">
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Affecter une visite">
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Générer une fiche d'intervention">
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Consulter une intervention">
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Valider une intervention">
-    <input type="button" onclick="window.location.href='vueListeClients.php'" value="Visualisation des statistiques">
+    <h1>Que voulez-vous faire ? </h1>
+
+    <br>
+    <hr>
+   <br>
+   
+   <input type="button" onclick="window.location.href='vueListeClients.php'" value="Liste des clients" class="form-control me-sm-2">
+
+    <input type="button" onclick="window.location.href='vueListeInterventions.php'" class="btn btn-primary" value="Liste des interventions">
+
+    <input type="button" onclick="window.location.href='vueAffecterVisite.php'" class="btn btn-primary" value ="Affecter une visite">
+
+    <input type="button" onclick="window.location.href='vueRechercheClients.php'" value ="Rechercher un client" class="btn btn-primary">
+
+    <button type="button" onclick="window.location.href='vueListeClients.php'" class="btn btn-primary">Générer une fiche d'intervention</button>
+
+    <button type="button" onclick="window.location.href='vueListeClients.php'" class="btn btn-primary">Consulter une intervention</button>
+
+    <button type="button" onclick="window.location.href='vueListeClients.php'" class="btn btn-primary">Valider une intervention</button>
+
+    <button type="button" onclick="window.location.href='vueListeClients.php'"  class="btn btn-primary">Visualisation des statistiques</button>
     <p>Connecté</p>
     
  </body>

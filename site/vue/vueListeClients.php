@@ -3,7 +3,7 @@
     include "$racine/modele/bd.inc.php";
     include "$racine/controleur/connexion.php";
     $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
-    $rqt = mysqli_query($mysqli,"SELECT * FROM client") or die("salope de merde");
+    $rqt = mysqli_query($mysqli,"SELECT * FROM client") or die("Erreur de la requete");
     
     echo "<table border ='1'>
     <tr>
