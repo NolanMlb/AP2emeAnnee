@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>marchefdp</title>
+    <title>marche</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>

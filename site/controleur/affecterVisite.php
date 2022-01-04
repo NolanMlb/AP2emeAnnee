@@ -8,7 +8,7 @@
     //interprétation pour la base de donnée
     $mysqli = new mysqli("localhost", "root", "root", "ap2eme");
     $mysqli -> set_charset("utf-8");
-    $requete="INSERT INTO intervention VALUES ('','$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]')";
+    $requete="INSERT INTO intervention (id)VALUES ('','$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]')";
     
     $resultat = mysqli_query($mysqli,$requete);
     if ($resultat){
