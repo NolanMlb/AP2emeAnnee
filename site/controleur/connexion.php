@@ -48,6 +48,7 @@ if(isset($_POST['valider'])){
             //le htmlentities() passera les guillemets en entités HTML, ce qui empêchera en partie, les injections SQL
             $Pseudo = htmlentities($_POST['utilisateur'], ENT_QUOTES, "UTF-8"); 
             $MotDePasse = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
+            
             //on se connecte à la base de données:
             $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
             //on vérifie que la connexion s'effectue correctement:
@@ -68,16 +69,33 @@ if(isset($_POST['valider'])){
                     include "$racine/modele/bd.inc.php";
                     echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
                 } else {
+                    $requete= "SELECT * FROM utilisateur WHERE nomUtilisateur = '".$Pseudo."' AND mdpUtilisateur = '".$MotDePasse."'";
+                    $result = $mysqli -> query($requete);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        if($row['roleUtilisateur']=='Technicien'){
+                            include "$racine/vue/vueAuthentification.html";
+                        include "$racine/vue/pied.html";
+                        include "$racine/modele/bd.inc.php";
+                        include "$racine/vue/accueil.html";
+                        echo "Vous êtes technicien !";
+
+                        exit();
+                        }
+
+                        else($row['roleUtilisateur']=='Gestionnaire'){
+                        include "$racine/vue/vueAuthentification.html";
+                        include "$racine/vue/pied.html";
+                        include "$racine/modele/bd.inc.php";
+                        include "$racine/vue/accueil.html";
+                        echo "Vous êtes gestionnaire !";
+
+                        exit();
+                        }
+                    }
                     //on ouvre la session avec $_SESSION:
                     //la session peut être appelée différemment et son contenu aussi peut être autre chose que le pseudo
                     $_SESSION['pseudo'] = $Pseudo;
-                    include "$racine/vue/vueAuthentification.html";
-                    include "$racine/vue/pied.html";
-                    include "$racine/modele/bd.inc.php";
-                    include "$racine/vue/accueil.html";
-                    echo "Vous êtes à présent connecté !";
-                    header('Location: /AP2emeAnnee%20copie%202/site/vue/accueil.html');
-                    exit();
+                    
                 }
             }
         }
