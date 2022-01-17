@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 13 déc. 2021 à 14:39
+-- Généré le : lun. 17 jan. 2022 à 13:17
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -54,6 +54,8 @@ DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
   `idClient` int(10) NOT NULL AUTO_INCREMENT,
   `numClient` int(10) DEFAULT NULL,
+  `nomClient` text NOT NULL,
+  `prenomClient` text NOT NULL,
   `raisonSocialeClient` varchar(50) DEFAULT NULL,
   `sirenClient` char(9) DEFAULT NULL,
   `codeApeClient` char(5) DEFAULT NULL,
@@ -67,15 +69,17 @@ CREATE TABLE IF NOT EXISTS `client` (
   PRIMARY KEY (`idClient`),
   KEY `FK_client_contratmaintenance_idcontrat_contratmaintenance` (`contratmaintenance`),
   KEY `FK_client_idAgence_agence` (`idAgence`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`idClient`, `numClient`, `raisonSocialeClient`, `sirenClient`, `codeApeClient`, `telClient`, `adresseClient`, `mailClient`, `dureeDeplacementClient`, `distanceKmClient`, `contratmaintenance`, `idAgence`) VALUES
-(1, 1, 'Marié', 'AM231', '5252', '0601020304', '219 rue du l\'ombrer\r\n59200 Tourcoing', 'Alerbermarand@gastonberger.fr', '00:14:00', 10, 1, 1),
-(2, 2, 'Celibataire', 'EL36', '4564', '0352659684', '12 rue du falanpin\r\n59175 Roncq.', 'Eliotrolain@gastonberger.fr', '00:20:00', 25, 2, 2);
+INSERT INTO `client` (`idClient`, `numClient`, `nomClient`, `prenomClient`, `raisonSocialeClient`, `sirenClient`, `codeApeClient`, `telClient`, `adresseClient`, `mailClient`, `dureeDeplacementClient`, `distanceKmClient`, `contratmaintenance`, `idAgence`) VALUES
+(1, 1, 'Marande\r\n', 'Albert', 'Marié', 'MA', '5252', '0601020304', '219 rue du l\'ombrer\r\n59200 Tourcoing', 'Alerbermarand@gastonberger.fr', '00:14:00', 10, 1, 1),
+(2, 2, 'Trolain', 'Elio', 'Celibataire', 'LE', '4564', '0352659684', '12 rue du falanpin\r\n59175 Roncq.', 'Eliotrolain@gastonberger.fr', '00:20:00', 25, 2, 2),
+(3, 3, 'Blandin', 'Benoit', 'Marié', 'BB', '2563', '0678876545', '10 rue de la tarte', 'Benoit.blandin@gmail.com', '00:08:00', 10, 1, 1),
+(4, 4, 'Roba', 'Luca', 'Celibataire', 'RL', '6969', '0654243421', '201 rue de gaston', 'luca.roba@gmail.com', '00:20:00', 19, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -125,14 +129,7 @@ CREATE TABLE IF NOT EXISTS `controler` (
   PRIMARY KEY (`idMateriel`,`idIntervention`),
   KEY `FK_controler_idIntervention_intervention` (`idIntervention`),
   KEY `idMateriel` (`idMateriel`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `controler`
---
-
-INSERT INTO `controler` (`idMateriel`, `idIntervention`, `idControler`, `numSerie`, `tempsPasse`, `commentaire`) VALUES
-(1, 1, 1, '2356', '00:33:37', 'Bien fait!');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -151,15 +148,18 @@ CREATE TABLE IF NOT EXISTS `employe` (
   `idtechnicien` int(10) DEFAULT NULL,
   PRIMARY KEY (`idEmploye`),
   KEY `FK_employe_technicien_idtechnicien_technicien` (`idtechnicien`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `employe`
 --
 
 INSERT INTO `employe` (`idEmploye`, `matricule`, `nomEmploye`, `prenomEmploye`, `adresseEmploye`, `dateEmbaucheEmploye`, `idtechnicien`) VALUES
-(1, '1', 'Ribeiro', 'Thomas', '219 rue Georges Pompidou\r\n59200 Tourcoing', '2021-12-12', 1),
-(2, '2', 'De Bruycker', 'Nicolas', '35 rue saranguins\r\n59200 Tourcoing', '2021-07-04', 2);
+(1, 'RT', 'Ribeiro', 'Thomas', '219 rue Georges Pompidou\r\n59200 Tourcoing', '2021-12-12', 1),
+(2, 'MN', 'Malherbe', 'Nolan', '35 rue saranguins\r\n59200 Tourcoing', '2021-07-04', 2),
+(3, 'MR', 'Mefroot', 'Rayane', '289 rue de la grillote.', '2021-08-01', NULL),
+(4, 'DN', 'DeBruycker', 'Nicolas', '212 rue de la pantiere', '2021-04-04', NULL),
+(5, 'DN', 'DeBruycker', 'Nicolas', '212 rue de la pantiere', '2021-04-04', NULL);
 
 -- --------------------------------------------------------
 
@@ -170,21 +170,35 @@ INSERT INTO `employe` (`idEmploye`, `matricule`, `nomEmploye`, `prenomEmploye`, 
 DROP TABLE IF EXISTS `intervention`;
 CREATE TABLE IF NOT EXISTS `intervention` (
   `idIntervention` int(10) NOT NULL AUTO_INCREMENT,
-  `dateVisite` date DEFAULT NULL,
-  `heureVisite` time DEFAULT NULL,
+  `dateVisite` text NOT NULL,
+  `heureVisite` text,
   `idClient` int(10) DEFAULT NULL,
   `idTechnicien` int(10) DEFAULT NULL,
+  `etatIntervention` text NOT NULL,
+  `valideIntervention` text NOT NULL,
   PRIMARY KEY (`idIntervention`),
   KEY `FK_intervention_idClient_client` (`idClient`),
   KEY `FK_intervention_idTechnicien_technicien` (`idTechnicien`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `intervention`
 --
 
-INSERT INTO `intervention` (`idIntervention`, `dateVisite`, `heureVisite`, `idClient`, `idTechnicien`) VALUES
-(1, '2021-12-12', '12:00:00', 1, 1);
+INSERT INTO `intervention` (`idIntervention`, `dateVisite`, `heureVisite`, `idClient`, `idTechnicien`, `etatIntervention`, `valideIntervention`) VALUES
+(25, '2022-01-14', '10:00', 1, 1, 'je pense que je sais pas', ''),
+(26, '2022-01-12', '12:00', 1, 1, 'Rectification de l\'état', ''),
+(27, '2022-01-15', '11:00', 1, 1, 'Rectification de la box', ''),
+(28, '2022-02-12', '09:00', 1, 1, 'Rectification de l\'état', ''),
+(29, '2022-09-12', '17:00', 2, 2, 'Planification du rdv et rectification d\'une erreur', ''),
+(30, '2022-08-21', '07:00', 2, 2, 'Planification du rdv et rectification d\'une erreur', ''),
+(31, '2022-01-31', '10:10', 2, 2, 'Planification du rdv et rectification d\'une erreur', ''),
+(32, '2022-11-25', '19:00', 1, 3, 'Il faut 2 visites encore pour régler le soucis.', ''),
+(33, '2022-11-30', '11:00', 2, 3, 'Il faut 1 visite encore pour régler le soucis.', ''),
+(34, '2022-03-22', '12:00', 1, 1, 'JSP', ''),
+(35, '2022-01-15', '10:33', 1, 1, 'Rectification du contrat', ''),
+(36, '2022-01-15', '10:33', 1, 1, 'Rectification du contrat', ''),
+(37, '2022-01-15', '12:00', 1, 1, 'La plomberie ', '');
 
 -- --------------------------------------------------------
 
@@ -241,15 +255,16 @@ CREATE TABLE IF NOT EXISTS `technicien` (
   PRIMARY KEY (`idTechnicien`),
   KEY `FK_technicien_employe_idemploye_employe` (`idemploye`),
   KEY `FK_technicien_idAgence_agence` (`idAgence`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `technicien`
 --
 
 INSERT INTO `technicien` (`idTechnicien`, `matricule`, `telTechnicien`, `qualification`, `dateObtention`, `nom`, `prenom`, `adresse`, `dateEmbauche`, `idemploye`, `idAgence`) VALUES
-(1, 'RT1', '0601020304', 'Expert en construction', '2021-07-04', 'Ribeiro', 'Thomas', '219 rue des saranguines\r\n59200 Tourcoing', '2021-10-03', 1, 1),
-(2, 'DN1', '0601020304', 'Expert en montage mécanique', '2021-08-01', 'De Bruycker', 'Nicolas', '35 rue des saranguins\r\n59200 Tourcoing', '2021-09-25', 2, 2);
+(1, 'RT', '0601020304', 'Expert en construction', '2021-07-04', 'Ribeiro', 'Thomas', '219 rue des saranguines\r\n59200 Tourcoing', '2021-10-03', 1, 1),
+(2, 'MN', '0601020304', 'Expert en montage mécanique', '2021-08-01', 'Malherbe', 'Nolan', '35 rue des saranguins\r\n59200 Tourcoing', '2021-09-25', 2, 2),
+(3, 'MR', '0670605040', 'Expert dans la plomberie.', '2021-07-04', 'Mefroot', 'Rayane', '250 rue de lagrillote', '2021-10-01', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -315,7 +330,21 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 INSERT INTO `utilisateur` (`nomUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES
 ('DeBruycker', 'DeBruycker', 'Gestionnaire'),
 ('Malherbe', 'Malherbe', 'Technicien'),
-('toma', 'libelo', 'technicien');
+('Ribeiro', 'Ribeiro', 'Technicien');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `valideintervention`
+--
+
+DROP TABLE IF EXISTS `valideintervention`;
+CREATE TABLE IF NOT EXISTS `valideintervention` (
+  `idIntervention` int(11) NOT NULL,
+  `etatIntervention` varchar(255) NOT NULL,
+  `commentaire` varchar(255) NOT NULL,
+  `tempPasse` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées
