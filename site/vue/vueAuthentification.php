@@ -2,7 +2,7 @@
 <!-- Formulaire de connexion -->
 <h1 class="titre">CONNECTEZ-VOUS POUR ACCEDER A VOTRE ESPACE </h1>
 <hr>
-        <form action="controleur/connexion.php" method="POST">
+        <form action="vue/accueil.html" method="POST">
         <div class="form-group">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="utilisateur" placeholder="Entrez le nom d'utilisateur..." name="utilisateur" requiered>

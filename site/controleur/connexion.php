@@ -77,18 +77,18 @@ if(isset($_POST['valider'])){
                         include "$racine/vue/pied.html";
                         include "$racine/modele/bd.inc.php";
                         include "$racine/vue/accueil.html";
-                        echo "Vous êtes technicien !";
+                        header("Location: AP2emeAnnee/site/vue/accueil.html");
 
                         exit();
                         }
 
-                        else($row['roleUtilisateur']=='Gestionnaire'){
+                        else if ($row['roleUtilisateur']=='Gestionnaire'){
                         include "$racine/vue/vueAuthentification.html";
                         include "$racine/vue/pied.html";
                         include "$racine/modele/bd.inc.php";
                         include "$racine/vue/accueil.html";
-                        echo "Vous êtes gestionnaire !";
-
+                        
+                        
                         exit();
                         }
                     }
