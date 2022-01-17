@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <title>Affecter Visite</title>
     <meta charset="UTF-8">
@@ -11,16 +10,39 @@
 <!--Formulaire pour affecter une visite-->
 <h1 class="titre" style="text-align:center;">Prenez rendez-vous facillement et rapidement !</h1><br><br><br>
 <form action="../controleur/affecterVisite.php" method="POST">
-    <div class="form-group">
-        <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="dateVisite" placeholder="Entrez la date de la visite..." name="dateVisite" requiered>
-            <label for="floatingInput">Date de la visite</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="time" class="form-control" id="heureVisite" placeholder="Entrez l'heure désirer... " name="heureVisite" requiered>
-            <label for="floatingInput">Heure de la visite</label>
-        </div>
-        <div class="form-floating mb-3">
+
+    <div class="form-group">
+
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="dateVisite" placeholder="Entrez la date de la visite..." name="dateVisite" requiered>
+            <label for="floatingInput">Date de la visite</label>
+        </div>
+
+        <div class="form-floating mb-3">
+
+            <input type="time" class="form-control" id="heureVisite" placeholder="Entrez l'heure désirer... " name="heureVisite" requiered>
+
+            <label for="floatingInput">Heure de la visite</label>
+
+        </div>
+
+        <div class="form-floating mb-3">
+
+            
+
+            <SELECT class="form-control" id="idClient" placeholder="Selectionnez le client... " name="idClient" requiered>
+
+                <OPTION>1</OPTION>
+
+                <OPTION>2</OPTION>
+
+                <OPTION>3</OPTION>
+
+                <OPTION>4</OPTION>
+
+                <OPTION>5</OPTION>
+
+            </SELECT>
             <label for="pet-select">Selectionnez le client:</label>
             <SELECT class="form-control" id="idClient" placeholder="Selectionnez le client... " name="idClient" requiered>
                 <OPTION>1</OPTION>
@@ -69,6 +91,27 @@
         <input type="submit" value = "Valider"> -->
     </body>
 
-</form>
-</html>
+        </div>
 
+        <div class="form-floating mb-3">
+
+
+
+            <SELECT class="form-control" id="idTechnicien" placeholder="Selectionnez le client... " name="idTechnicien" requiered>
+
+                <OPTION>1</OPTION>
+
+                <OPTION>2</OPTION>
+
+                <OPTION>3</OPTION>
+
+            </SELECT>
+            <label for="pet-select">Selectionnez le technicien:</label> 
+        </div>
+        <input class="btn btn-outline-success" type="submit" value = "Valider" style="width:20%;">
+
+</div>
+</form>
+</body>
+
+</html>
