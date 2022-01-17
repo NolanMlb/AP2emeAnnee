@@ -4,15 +4,14 @@
             $racine="..";
         }
         
-        session_start();
         if (isset($_POST['utilisateur']) && isset($_POST['password'])){
 
             // connexion a la base de donnée
             $reponse = 0;
-            $bd_host = "localhost";
+            $bd_host = "localhost:3306";
             $bd_nom = "ap2eme";
             $bd_username = "root";
-            $bd_password = "root";
+            $bd_password = "";
 
             try{
                 $conn = new PDO("mysql:host=$bd_host;dbname=$bd_nom", $bd_username, $bd_password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')); 

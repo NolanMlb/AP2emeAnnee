@@ -1,8 +1,8 @@
 <?php
 include "getRacine.php";
-include "$racine/vue/vueAuthentification.php";
-include "$racine/vue/pied.html";
-include "$racine/modele/bd.inc.php";
-include "$racine/controleur/connexion.php";
+include "vue/vueAuthentification.php";
+include "vue/pied.html";
+include "modele/bd.inc.php";
+include "controleur/connexion.php";
 launch_BDD();
 ?>

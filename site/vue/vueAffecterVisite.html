@@ -2,13 +2,14 @@
 <html lang="fr">
 
 <head>
-    <title>marche</title>
+    <title>Affecter Visite</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
+<body>
 <!--Formulaire pour affecter une visite-->
-<h1 class="titre">Prenez rendez-vous facillement et rapidement !</h1><br><br><br>
+<h1 class="titre" style="text-align:center;">Prenez rendez-vous facillement et rapidement !</h1><br><br><br>
 <form action="../controleur/affecterVisite.php" method="POST">
     <div class="form-group">
         <div class="form-floating mb-3">
@@ -26,7 +27,6 @@
                 <OPTION>2</OPTION>
                 <OPTION>3</OPTION>
                 <OPTION>4</OPTION>
-                <OPTION>5</OPTION>
             </SELECT>
         </div>
         <div class="form-floating mb-3">
@@ -35,10 +35,13 @@
                 <OPTION>1</OPTION>
                 <OPTION>2</OPTION>
                 <OPTION>3</OPTION>
-            </SELECT>
-            
+            </SELECT>   
         </div>
-        <input class="form-control" type="submit" value = "Valider">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="etatIntervention" placeholder="L'état de la visite..." name="etatIntervention" requiered>
+            <label for="floatingInput">Etat de l'intervention ?</label>
+        </div>
+        <input class="form-control" type="submit" value = "Valider" style="position: center;">
 </div>
     
     
@@ -64,6 +67,7 @@
             <OPTION>3
         </SELECT><br>
         <input type="submit" value = "Valider"> -->
+    </body>
 
 </form>
 </html>
