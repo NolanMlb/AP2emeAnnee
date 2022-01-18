@@ -1,22 +1,9 @@
-<!-- Lien pour CSS-->
-        <link rel="stylesheet" href="../css/style.css">
-<!--Fin lien CSS -->
+<?php
 
-    </head> 
-
-    <body>      
-
-    </body>
-
-    <?php
 /*
 Page: connexion.php
 */
 //à mettre tout en haut du fichier .php, cette fonction propre à PHP servira à maintenir la $_SESSION
-session_start();
-include "$racine/vue/pied.html";
-include "$racine/modele/bd.inc.php";
-include "$racine/vue/vueAuthentification.html";
 
 
 //si le bouton "Connexion" est cliqué
@@ -33,16 +20,15 @@ if(isset($_POST['valider'])){
         if(empty($_POST['password'])){
             
             include "../vue/pied.html";
-            include "../modele/bd.inc.php";
+            include "$/modele/bd.inc.php";
             echo "Le champ Mot de passe est vide.";
         } else {
             // les champs pseudo & mdp sont bien postés et pas vides, on sécurise les données entrées par l'utilisateur
             //le htmlentities() passera les guillemets en entités HTML, ce qui empêchera en partie, les injections SQL
             $Pseudo = htmlentities($_POST['utilisateur'], ENT_QUOTES, "UTF-8"); 
             $MotDePasse = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
-            
             //on se connecte à la base de données:
-            $mysqli = mysqli_connect("localhost", "root", "", "ap2eme");
+            $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
             //on vérifie que la connexion s'effectue correctement:
             if(!$mysqli){
                 

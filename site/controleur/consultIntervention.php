@@ -12,7 +12,7 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    $mysqli = mysqli_connect("localhost:3306", "root", "", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     $rqt = mysqli_query($mysqli,"SELECT idTechnicien, dateVisite, heureVisite, idClient
     FROM INTERVENTION
     WHERE idTechnicien = $id

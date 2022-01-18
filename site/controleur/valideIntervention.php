@@ -9,7 +9,7 @@ include "../vue/pied.html";
 //ils peuvent valider une intervention en ajoutant un commentaire 
 //la décrivant et en renseignant le temps passé. 
 
-$mysqli = new mysqli("localhost:3306", "root", "", "ap2eme") or die("Erreur de connexion à la BDD");
+$mysqli = new mysqli("localhost", "root", "root", "ap2eme") or die("Erreur de connexion à la BDD");
 $mysqli -> set_charset("utf-8");
 $rqt = "SELECT idIntervention, dateVisite, heureVisite, idClient, idTechnicien, etatIntervention, valideIntervention FROM intervention";
 $resultat = mysqli_query($mysqli,$rqt);
@@ -50,7 +50,7 @@ if($resultat){
         }
     }else{
         echo "erreur dans l'exécution de la requête.<br>";
-        echo "Message d'erreur : " . mysql_error($mysqli);
+        echo "Message d'erreur : " . mysqli_error($mysqli);
     }
 
 

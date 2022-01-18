@@ -3,7 +3,7 @@
     include "../modele/bd.inc.php";
     include "../controleur/connexion.php";
     include "../vue/entete.html";
-    $mysqli = mysqli_connect("localhost:3306", "root", "", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
 
 
     if (isset($_POST["numC"])){
@@ -112,7 +112,8 @@
             }
             echo "</table>";
             }
-        }else{
+        }
+        else{
             echo "erreur dans l'exécution de la requête.<br>";
             echo "Message d'erreur : " . mysql_error($mysqli);
         }

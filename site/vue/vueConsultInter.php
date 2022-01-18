@@ -1,6 +1,7 @@
 <?php
     //include
-    include "../vue/entete.html";
+    $titre="Consulter les interventions";
+    include "../vue/entete.html.php";
     include "../vue/pied.html";
 ?>
 

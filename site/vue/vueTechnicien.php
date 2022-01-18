@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-      <title>Vue du Technicien</title>
-        <meta charset="UTF-8">
-        <!-- Responsive meta -->
-        <meta name="viewport"content="width=device-width, initial-scale=1, user-scalable=no">
-
-     <!-- Lien pour CSS-->
-     <link rel="stylesheet" href="../css/style.css" type="text/css">
-     
-</head> 
+<?php
+$titre="Technicien";
+include "../vue/entete.html.php";
+?>
  
 <body>
+   <?php
+   include"../vue/entete.html.php";
+   ?>
    <h1 style="text-align:center;">Que voulez-vous faire ? </h1>
    <hr>
 

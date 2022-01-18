@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <title></title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
-</head>
+<?php
+$titre="Rechercher un client";
+include "../vue/entete.html.php";
+?>
 
 <form action="../controleur/RechClient.php" method="POST">
     <div class="form-floating mb-3">

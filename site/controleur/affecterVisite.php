@@ -1,9 +1,9 @@
 <?php
 
     //include les fichiers
-    include "$racine/modele/bd.inc.php";
-    include "$racine/controleur/connexion.php";
-    include "$racine/vue/entete.html";
+    include "../modele/bd.inc.php";
+    include "../controleur/connexion.php";
+    include "../vue/entete.html";
     
     //recuperer l'id
     $id_auto=0;
