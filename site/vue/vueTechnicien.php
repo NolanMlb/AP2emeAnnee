@@ -25,7 +25,7 @@
 
       <input type="button" onclick="window.location.href='../vue/vueConsultInter.php'" class="btn btn-primary" value="Consulter une intervention">
 
-      <input type="button" onclick="window.location.href='../vue/vueValideInter.php'" class="btn btn-primary" value="Valider une intervention"></center>
+      <input type="button" onclick="window.location.href='../vue/vueValiderIntervention.php'" class="btn btn-primary" value="Valider une intervention"></center>
    </div>
     
 </body>
