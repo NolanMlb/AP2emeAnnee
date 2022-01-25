@@ -1,6 +1,6 @@
 <?php
-    $titre="Affecter visite";
-    include "../vue/entete.html.php";
+$titre = "Affecter visite";
+include "../vue/entete.html.php";
 ?>
 <body>
 <!--Formulaire pour affecter une visite-->
@@ -39,29 +39,6 @@
         <input class="form-control" type="submit" value = "Valider" style="position: center;">
 </div>
     
-    
-    
-    <!-- <div class="form-group">
-        <div class="form-group mb-3"></div>
-            <input type="date" class="form-control" placeholder="Entrez la date de visite" name="dateVisite"><br>
-            <label for="floatingInput">Date de la visite</label>
-        </div>
-    </div>
-        Heure de la visite<input type="time" name="heureVisite"><br>
-        Id du client<SELECT name = "idClient"><br>
-            <OPTION>1
-            <OPTION>2
-            <OPTION>3
-            <OPTION>4
-            <OPTION>5
-        </SELECT><br>
-
-        Id du technicien<SELECT name="idTechnicien">
-            <OPTION>1
-            <OPTION>2
-            <OPTION>3
-        </SELECT><br>
-        <input type="submit" value = "Valider"> -->
     </body>
 
 </form>

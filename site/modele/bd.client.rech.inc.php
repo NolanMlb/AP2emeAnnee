@@ -9,7 +9,7 @@ function getClientByIdC($idC) {
 }
 
 function getClientByNumC($numC) {
-    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
+    $mysqli = mysqli_connect("localhost:3306", "root", "", "ap2eme");
     $rqt = mysqli_query($mysqli,"SELECT * FROM client where numC=: numC") or die("Erreur au niveau de la requête");
     return $rqt;
 }

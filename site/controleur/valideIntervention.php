@@ -2,7 +2,7 @@
 
 //include
 include "../modele/bd.inc.php";
-include "../vue/entete.html";
+include "../vue/entete.html.php";
 include "../vue/pied.html";
 
 //Uniquement possible pour les techniciens, 
