@@ -37,8 +37,11 @@
     
     $dompdf -> render();
 
-    $fichier = 'fiche_intervention.pdf';
+    foreach($intervention as $interventions):
+        
+    $fichier = 'fiche_intervention_n°'.$interventions['idIntervention'].'.pdf';
 
     $dompdf -> stream($fichier);
-
+    
+    endforeach;
 ?>

@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         
         <style>
-            table {
+            .table1 {
                 border-width:1px; 
                 border-style:solid; 
                 border-color:black;
@@ -44,7 +44,7 @@
 
 <br><br><br>
 
-    <table class="table table">
+    <table class="table1">
         <thead>
             <tr>
                 <th>Date de la visite</th>
@@ -73,4 +73,32 @@
 
     <?php endforeach; ?>
     
+
+    <div>
+        <table class="table3" style="width:200px; height:130px;">
+        <td>Cachet de l'entreprise : </td>
+        </table>
+        <style>
+            .table3{
+                float: left;
+                margin-top: 40%;
+                border-width:1px; 
+                border-style:solid; 
+                border-color:black;
+            }
+        </style>
+
+        <table class="table2" style="width:200px; height:130px;">
+            <td>Date et signature du technicien :</td>
+        </table>
+        <style>.table2{
+            float:right;
+            margin-top:40%;
+            border-width:1px; 
+            border-style:solid; 
+            border-color:black;
+        }
+        </style>
+    </div>
+
 </body>
