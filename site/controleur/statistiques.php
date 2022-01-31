@@ -10,7 +10,7 @@
         echo "Vous n'avez pas saisi de mois";
     }
     else{
-    $mysqli = mysqli_connect("localhost", "root", "", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     $nbInterventions = mysqli_query($mysqli,"SELECT technicien.idTechnicien, matricule, nom, prenom, telTechnicien, COUNT(intervention.idTechnicien) AS nbInterventions, SEC_TO_TIME(SUM(TIME_TO_SEC(validerIntervention.tempsPasse))) AS 'tpasse'
     FROM technicien, intervention, validerIntervention
     WHERE technicien.idTechnicien = intervention.idTechnicien

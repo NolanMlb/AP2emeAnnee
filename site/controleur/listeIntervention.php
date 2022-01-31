@@ -5,7 +5,7 @@
     
     include "../vue/entete.html";
     include "../vue/pied.html";
-    $mysqli = mysqli_connect("localhost:3306", "root", "", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     
     if(isset($_GET['id'])){
         $id = $_GET['id'];

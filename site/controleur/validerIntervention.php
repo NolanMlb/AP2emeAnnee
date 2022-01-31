@@ -2,7 +2,7 @@
     include "../vue/entete.html";
     include "../modele/bd.inc.php";
     include "../vue/pied.html";
-    $mysqli = mysqli_connect("localhost", "root", "", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     if (isset($_POST["idI"])){
     $id = $_POST['idI'];
     $resultat = mysqli_query($mysqli,"SELECT * FROM intervention WHERE idIntervention like '%" . $_POST["idI"]. "%'") or die("Erreur au niveau de la requête");

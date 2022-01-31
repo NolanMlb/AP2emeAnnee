@@ -27,7 +27,7 @@
     </head>
 
 <body>
-<img width="200px;" src="http://localhost/AP2emAnnee/site/img/vdev.png" alt="VDEV" style="margin-left:35%;">
+<img width="200px;" src="http://localhost:8888/AP2emeAnnee/site/img/vdev.png" alt="VDEV" style="margin-left:35%;">
                 
                 
 <?php

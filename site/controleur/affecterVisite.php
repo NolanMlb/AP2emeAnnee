@@ -9,7 +9,7 @@
     $id_auto=0;
 
     //interprétation pour la base de donnée
-    $mysqli = new mysqli("localhost:3306", "root", "", "ap2eme");
+    $mysqli = new mysqli("localhost", "root", "root", "ap2eme");
     $mysqli -> set_charset("utf-8");
     $requete="INSERT INTO intervention VALUES ($id_auto,'$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]','$_POST[etatIntervention]','')";
     $resultat = mysqli_query($mysqli,$requete);

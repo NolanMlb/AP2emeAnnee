@@ -12,7 +12,7 @@
     }
     
     $sql = "SELECT * FROM intervention, technicien WHERE idIntervention = $id AND intervention.idTechnicien = technicien.idTechnicien";
-    $db = new PDO('mysql:host=localhost;dbname=ap2eme', 'root', '');
+    $db = new PDO('mysql:host=localhost;dbname=ap2eme', 'root', 'root');
     $query = $db->query($sql);
     $intervention = $query->fetchAll();
 

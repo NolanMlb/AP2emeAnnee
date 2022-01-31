@@ -5,7 +5,7 @@
     include "../vue/pied.html";
     include "../vue/entete.html";
     
-    $mysqli = mysqli_connect("localhost:3306", "root", "", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     if(isset($_POST["numC"])){
     if(empty($_POST['numC'])){
         echo "";
@@ -56,7 +56,7 @@
         }
     }else{
         echo "erreur dans l'exécution de la requête.<br>";
-        echo "Message d'erreur : " . mysql_error($mysqli);
+        echo "Message d'erreur : " . mysqli_error($mysqli);
     }
     }
     }
@@ -111,7 +111,7 @@
             }
     }else{
         echo "erreur dans l'exécution de la requête.<br>";
-        echo "Message d'erreur : " . mysql_error($mysqli);
+        echo "Message d'erreur : " . mysqli_error($mysqli);
     }
     }
     }
@@ -166,7 +166,7 @@
             }
     }else{
         echo "erreur dans l'exécution de la requête.<br>";
-        echo "Message d'erreur : " . mysql_error($mysqli);
+        echo "Message d'erreur : " . mysqli_error($mysqli);
     }
     }
     }
