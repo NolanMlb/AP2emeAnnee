@@ -1,24 +1,42 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+    $titre = "Recherche d'un client";
+    include "../vue/entete.html.php";
+    include "../vue/pied.html";
+?>
 
-<head>
-    <title>Vue recherche client</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
-</head>
+<body>
+    <center>
+<form action="../controleur/rechercheClient.php" method="POST" style="width:40%;">
+    <div class="form-group">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="idIntervention" placeholder="Entrez le nom complet du client'" name="numC" requiered>
+            <label for="floatingInput">Numéro du client: </label>
+        </div>
+        <div style="text-align:center;">
+            <input class="btn btn-primary" type="submit" value = "Valider" style=" width:30%;">
+        </div><br>
+    </div>
 
-<form action="../controleur/rechercheClient.php" method="POST">
-    <div class="form-floating mb-3">
-	    Numéro de client : <input type="text" class="form-control" style="width:20%;"name="numC"/><br/>
-        <input class="form-control" type="submit" style="width:20%;" value = "Valider">
+    <div class="form-group">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="idIntervention" placeholder="Entrez le nom complet du client'" name="nomC" requiered>
+            <label for="floatingInput">Nom du client : </label>
+        </div>
+        <div style="text-align:center;">
+            <input class="btn btn-primary" type="submit" value = "Valider" style=" width:30%;">
+        </div><br>
     </div>
-    <div class="form-floating mb-3">
-        Nom du client : <input type="text" name="nomC" style="width:20%;" class="form-control"/><br>
-        <input class="form-control" type="submit" style="width:20%;" value = "Valider">
+
+    <div class="form-group">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="idIntervention" placeholder="Entrez le prenom complet du client'" name="prenomC" requiered>
+            <label for="floatingInput">Prenom du client : </label>
+        </div>
+        <div style="text-align:center;">
+            <input class="btn btn-primary" type="submit" value = "Valider" style=" width:30%;">
+        </div>
     </div>
-    <div class="form-floating mb-3">
-        Prénom du client : <input type="text" name="prenomC" style="width:20%;" class="form-control"/><br>
-        <input class="form-control" type="submit" style="width:20%;" value = "Valider">
-    </div>
+
 </form>
-</html>
+    </center>
+</body>

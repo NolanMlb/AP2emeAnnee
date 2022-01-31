@@ -16,22 +16,22 @@
         echo"<h1< Résultat de la recherche : </h1><br>";
         $nbClient = mysqli_num_rows($resultat);
         if($nbClient > 0){
-        echo "<table border ='1'>";
-        echo "<tr>";
-        echo "<th>Numéro client</th>";
-        echo "<th>Nom du client</th>";
-        echo "<th>Prénom du client</th>";
-        echo "<th>Raison Sociale</th>";
-        echo "<th>Siren</th>";
-        echo "<th>codeApe </th>";
-        echo "<th>Teléphone</th>";
-        echo "<th>Adresse</th>";
-        echo "<th>Mail</th>";
-        echo "<th>Durée Deplacement</th>";
-        echo "<th>Distance(km)</th>";
-        echo "<th>Contrat de maintenance</th>";
-        echo "<th> idAgence </th>";
-        echo "</tr>";
+        echo "<table class='table table-hover' border ='1'>
+            <tr class='table-primary'>
+            <th scope='row'>Numéro client</th>
+            <th scope='row'>Nom du client</th>
+            <th scope='row'>Prénom du client</th>
+            <th scope='row'>Raison Sociale</th>
+            <th scope='row'>Siren</th>
+            <th scope='row'>codeApe </th>
+            <th scope='row'>Teléphone</th>
+            <th scope='row'>Adresse</th>
+            <th scope='row'>Mail</th>
+            <th scope='row'>Durée Deplacement</th>
+            <th scope='row'>Distance(km)</th>
+            <th scope='row'>Contrat de maintenance</th>
+            <th scope='row'> idAgence </th>
+            </tr>";
 
         while($row = mysqli_fetch_array($resultat)){
             echo "<tr><br>";
@@ -71,22 +71,22 @@
         echo"<h1< Résultat de la recherche : </h1><br>";
         $nbClient = mysqli_num_rows($resultat);
         if($nbClient > 0){
-            echo "<table border ='1'>";
-            echo "<tr>";
-            echo "<th>Numéro client</th>";
-            echo "<th>Nom du client</th>";
-            echo "<th>Prénom du client</th>";
-            echo "<th>Raison Sociale</th>";
-            echo "<th>Siren</th>";
-            echo "<th>codeApe </th>";
-            echo "<th>Teléphone</th>";
-            echo "<th>Adresse</th>";
-            echo "<th>Mail</th>";
-            echo "<th>Durée Deplacement</th>";
-            echo "<th>Distance(km)</th>";
-            echo "<th>Contrat de maintenance</th>";
-            echo "<th> idAgence </th>";
-            echo "</tr>";
+            echo "<table class='table table-hover' border ='1'>
+            <tr class='table-primary'>
+            <th scope='row'>Numéro client</th>
+            <th scope='row'>Nom du client</th>
+            <th scope='row'>Prénom du client</th>
+            <th scope='row'>Raison Sociale</th>
+            <th scope='row'>Siren</th>
+            <th scope='row'>codeApe </th>
+            <th scope='row'>Teléphone</th>
+            <th scope='row'>Adresse</th>
+            <th scope='row'>Mail</th>
+            <th scope='row'>Durée Deplacement</th>
+            <th scope='row'>Distance(km)</th>
+            <th scope='row'>Contrat de maintenance</th>
+            <th scope='row'> idAgence </th>
+            </tr>";
     
             while($row = mysqli_fetch_array($resultat)){
                 echo "<tr><br>";
@@ -126,22 +126,22 @@
         echo"<h1< Résultat de la recherche : </h1><br>";
         $nbClient = mysqli_num_rows($resultat);
         if($nbClient > 0){
-            echo "<table border ='1'>";
-            echo "<tr>";
-            echo "<th>Numéro client</th>";
-            echo "<th>Nom du client</th>";
-            echo "<th>Prénom du client</th>";
-            echo "<th>Raison Sociale</th>";
-            echo "<th>Siren</th>";
-            echo "<th>codeApe </th>";
-            echo "<th>Teléphone</th>";
-            echo "<th>Adresse</th>";
-            echo "<th>Mail</th>";
-            echo "<th>Durée Deplacement</th>";
-            echo "<th>Distance(km)</th>";
-            echo "<th>Contrat de maintenance</th>";
-            echo "<th> idAgence </th>";
-            echo "</tr>";
+            echo "<table class='table table-hover' border ='1'>
+            <tr class='table-primary'>
+            <th scope='row'>Numéro client</th>
+            <th scope='row'>Nom du client</th>
+            <th scope='row'>Prénom du client</th>
+            <th scope='row'>Raison Sociale</th>
+            <th scope='row'>Siren</th>
+            <th scope='row'>codeApe </th>
+            <th scope='row'>Teléphone</th>
+            <th scope='row'>Adresse</th>
+            <th scope='row'>Mail</th>
+            <th scope='row'>Durée Deplacement</th>
+            <th scope='row'>Distance(km)</th>
+            <th scope='row'>Contrat de maintenance</th>
+            <th scope='row'> idAgence </th>
+            </tr>";
     
             while($row = mysqli_fetch_array($resultat)){
                 echo "<tr><br>";

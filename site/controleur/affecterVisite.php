@@ -4,7 +4,7 @@
     include "../modele/bd.inc.php";
     include "../controleur/connexion.php";
     include "../vue/entete.html";
-    
+    include "../vue/pied.html";
     //recuperer l'id
     $id_auto=0;
 

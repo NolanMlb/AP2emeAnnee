@@ -1,23 +1,19 @@
-<link rel="stylesheet" href="../css/style.css">
 <?php
     
-    include "$racine/modele/bd.inc.php";
-    include "$racine/controleur/connexion.php";
-    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
-    $rqt = mysqli_query($mysqli,"SELECT * FROM intervention") or die("Erreur au niveau de la requête");
-    
-    echo "<table border ='1'>
-    <tr>
-        <th>dateVisite</th>
-        <th>heureVisite</th>
-        <th>idClient</th>
-        <th>idTechnicien</th>
-    </tr>";
-     while($row = mysqli_fetch_array($rqt)){
-        echo "<tr>";
-        echo "<td>".$row['dateVisite'];
-        echo "<td>".$row['heureVisite'];
-        echo "<td>".$row['idClient'];
-        echo "<td>".$row['idTechnicien'];
-    }
+    include "../modele/bd.inc.php";
+    include "../controleur/connexion.php";
+    $titre = "Liste des interventions";
+    include "../vue/entete.html.php";
+    include "../vue/pied.html";
 ?>
+    <!--Partie html-->
+    <body>
+   <h1 style="text-align:center;">Liste des interventions par:  </h1>
+   <hr>
+
+   <div style="margin-top:70px">
+      <center><input type="button" onclick="window.location.href='../controleur/listeIntervention.php?id=1'" id='1' class="btn btn-primary" value="Date">
+
+      <input type="button" onclick="window.location.href='../controleur/listeIntervention.php?id=2'" id='2' class="btn btn-primary" value ="Technicien">
+      </center>
+   </div>
