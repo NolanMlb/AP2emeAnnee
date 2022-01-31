@@ -13,6 +13,7 @@
                 width: 100%;
             }
             td { 
+
                 text-align:center;
             }
         </style>
@@ -72,42 +73,42 @@
     <p>Avec ce pdf, vous retrouverez tous les détails de l'intervention sélectionnée.<br> L'état de votre intervention est : <?=$interventions['etatIntervention']?>.</p>
 
     <?php endforeach; ?>
+
     <div>
-        <table class="table1">
-            <tr class="tr1"><th>Cachet de l'entreprise :</th></tr>
-            <tr><td></td></tr>
-            <tr><td></td></tr>
-        </table>
+        <div class="rectangle1">
+           <p style="position:absolute; margin-top: -3px;">Cachet de l'entreprise :</p>
+        </div>
 
         <style>
-            .table1{
+            .rectangle1{
+                margin-top: -50px;
                 float:left;
                 margin-top: 40%;
                 height:150px;
                 width:200px;
-            }
-            .tr1{
-                margin-top: -10px;
+                border:1px solid #069;
+	            border-color:black;
             }
         </style>
 
-        <table class="table2">
-            <tr class="tr2"><th>Signature du client :</th></tr>
-            <tr><td></td></tr>
-            <tr><td></td></tr>
-        </table>
+
+        <div class="rectangle2">
+            <p style="position:absolute; margin-top: -3px;">Signature du client :  </p>
+        </div>
 
         <style>
-            .table2{
+            .rectangle2{
                 float:right;
                 margin-left:60%;
                 margin-top: 40%;
                 height:150px;
                 width:200px;
+                border:1px solid #069;
+	            border-color:black;
             }
-            .tr1{
-                margin-top: -10px;
-            }
+            
         </style>
     </div>
+
 </body>
+</html>
