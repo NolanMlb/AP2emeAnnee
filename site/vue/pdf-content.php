@@ -72,5 +72,42 @@
     <p>Avec ce pdf, vous retrouverez tous les détails de l'intervention sélectionnée.<br> L'état de votre intervention est : <?=$interventions['etatIntervention']?>.</p>
 
     <?php endforeach; ?>
-    
+    <div>
+        <table class="table1">
+            <tr class="tr1"><th>Cachet de l'entreprise :</th></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+        </table>
+
+        <style>
+            .table1{
+                float:left;
+                margin-top: 40%;
+                height:150px;
+                width:200px;
+            }
+            .tr1{
+                margin-top: -10px;
+            }
+        </style>
+
+        <table class="table2">
+            <tr class="tr2"><th>Signature du client :</th></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+        </table>
+
+        <style>
+            .table2{
+                float:right;
+                margin-left:60%;
+                margin-top: 40%;
+                height:150px;
+                width:200px;
+            }
+            .tr1{
+                margin-top: -10px;
+            }
+        </style>
+    </div>
 </body>
