@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
 
-<form action="../controleur/rechClient.php" method="POST">
+<form action="../controleur/rechercheClient.php" method="POST">
     <div class="rechclient">
 	Numéro du client : <input type="text" name="numC"/>
     Nom du client : <input type="text" name="nomC"/>
