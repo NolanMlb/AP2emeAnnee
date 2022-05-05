@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
 
-<form action="/AP2emeAnnee/site/controleur/vueResultRechClient.php" method="POST">
+<form action="../controleur/rechClient.php" method="POST">
     <div class="rechclient">
-	Numéro de client : <input type="text" name="numC"/><br/>
-    <input type="submit" value = "Valider">
+	Numéro du client : <input type="text" name="numC"/>
+    Nom du client : <input type="text" name="nomC"/>
+    Prénom du client : <input type="text" name="prenomC"/>
+    <input type="submit" value = "Valider"><br>
     </div>
 </form>
 </html>
