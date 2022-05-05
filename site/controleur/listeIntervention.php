@@ -2,25 +2,23 @@
     //Uniquement possible pour les techniciens (gestion d’accès), 
     //le technicien pourra voir la liste des interventions par date ou par agent 
     //et par la suite éditer la fiche intervention.
-
-    include "../modele/bd.inc.php";
-    include "../controleur/connexion.php";
+    
     include "../vue/entete.html";
     include "../vue/pied.html";
-    $mysqli = mysqli_connect("localhost:3306", "", "root", "ap2eme");
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         if ($id = 1){
             $rqt = mysqli_query($mysqli,"SELECT * FROM intervention ORDER BY dateVisite DESC") or die("Erreur au niveau de la requête");
-            echo "<table border ='1'>";
-            echo "<tr>";
-            echo "<th>  ID Intervention  </th>";
-            echo "<th>  Date de la vitite  </th>";
-            echo "<th>  Heure de la visite  </th>";
-            echo "<th>  ID client  </th>";
-            echo "<th>  ID technicien  </th>";
-            echo "</tr>";
+            echo "<table class='table table-hover' border ='1'>
+            <tr class='table-primary'>
+            <th scope='row'>  ID Intervention  </th>
+            <th scope='row'>  Date de la vitite  </th>
+            <th scope='row'>  Heure de la visite  </th>
+            <th scope='row'>  ID client  </th>
+            <th scope='row'>  ID technicien  </th>
+            </tr>";
 
         while($row = mysqli_fetch_array($rqt)){
             echo "<tr><br>";
@@ -36,17 +34,14 @@
 
         else if ($id = 2){
             $rqt = mysqli_query($mysqli,"SELECT * FROM intervention ORDER BY idTechnicien") or die("Erreur au niveau de la requête");
-            echo "<table border ='1'>";
-            echo "<tr>";
-            echo "<th>  ID Intervention  </th>";
-            echo "<th>  Date de la vitite  </th>";
-            echo "<th>  Heure de la visite  </th>";
-            echo "<th>  ID client  </th>";
-            echo "<th>  ID technicien  </th>";
-            echo "<th>  Etat de l'intervention  </th>";
-            echo "<th>  Commentaire  </th>";
-            echo "<th>  Temps passé  </th>";
-            echo "</tr>";
+            echo "<table class='table table-hover' border ='1'>
+            <tr class='table-primary'>
+            <th scope='row'>  ID Intervention  </th>
+            <th scope='row'>  Date de la vitite  </th>
+            <th scope='row'>  Heure de la visite  </th>
+            <th scope='row'>  ID client  </th>
+            <th scope='row'>  ID technicien  </th>
+            </tr>";
 
         while($row = mysqli_fetch_array($rqt)){
             echo "<tr><br>";

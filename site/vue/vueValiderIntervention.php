@@ -1,20 +1,22 @@
-<!DOCTYPE html>
 
-    <html lang="fr">
-    <head>
-        <title>Valider une intervention</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/style.css" type="text/css">
+<?php
+    $titre = "Valider une intervention";
+    include "../vue/entete.html.php";
+    include "../vue/pied.html";
+?>
 
-    </head>
-    <body>
-        <form action="../controleur/validerIntervention.php" method="POST">
-
-    <div class="validerintervention">   
-        ID de l'intervention : <input type="text" name="idI"/>
-        <input type="submit" value = "Valider"><br>
+<body>
+    <center>
+<form action="../controleur/validerIntervention.php" method="POST" style="width:40%;">
+    <div class="form-group">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="idIntervention" placeholder="Entrez l'id de la fiche intervention'" name="idI" requiered>
+            <label for="floatingInput">Entrez l'id de l'intervention</label>
+        </div>
+        <div style="text-align:center;">
+        <input class="btn btn-primary" type="submit" value = "Valider" style=" width:30%;">
+        </div>
     </div>
-
-    </form>
-    </body>
-</html>
+</form>
+    </center>
+</body>

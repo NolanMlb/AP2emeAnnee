@@ -1,7 +1,8 @@
 <?php
     include "../vue/entete.html";
     include "../modele/bd.inc.php";
-    $mysqli = mysqli_connect("localhost", "root", "", "ap2eme");
+    include "../vue/pied.html";
+    $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
     if (isset($_POST["idI"])){
     $id = $_POST['idI'];
     $resultat = mysqli_query($mysqli,"SELECT * FROM intervention WHERE idIntervention like '%" . $_POST["idI"]. "%'") or die("Erreur au niveau de la requête");
@@ -9,14 +10,14 @@
         echo"<h1< Intervention : </h1><br>";
         $nbIntervention = mysqli_num_rows($resultat);
         if($nbIntervention > 0){
-        echo "<table class='table table-hover' border ='1'>";
-        echo "<tr class='table-primary'>";
-        echo "<th scope='row'>  ID Intervention  </th>";
-        echo "<th scope='row'>  Date de la vitite  </th>";
-        echo "<th scope='row'>  Heure de la visite  </th>";
-        echo "<th scope='row'>  ID client  </th>";
-        echo "<th scope='row'>  ID technicien  </th>";
-        echo "</tr>";
+        echo "<table class='table table-hover' border ='1'>
+            <tr class='table-primary'>
+            <th scope='row'>  ID Intervention  </th>
+            <th scope='row'>  Date de la vitite  </th>
+            <th scope='row'>  Heure de la visite  </th>
+            <th scope='row'>  ID client  </th>
+            <th scope='row'>  ID technicien  </th>
+            </tr>";
 
         while($row = mysqli_fetch_array($resultat)){
             echo "<tr class='table-primary'><br>";

@@ -28,7 +28,7 @@ if(isset($_POST['valider'])){
             $Pseudo = htmlentities($_POST['utilisateur'], ENT_QUOTES, "UTF-8"); 
             $MotDePasse = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
             //on se connecte à la base de données:
-            $mysqli = mysqli_connect("localhost", "root", "", "ap2eme");
+            $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
             //on vérifie que la connexion s'effectue correctement:
             if(!$mysqli){
                 
