@@ -13,7 +13,7 @@ if (isset($_POST["idC"])){
     $voieAdrR = $_POST["idC"];
 }
 
-switch($critere){
+/*switch($critere){
     case 'num':
         // recherche par num
         $listeRestos = getClientByNumC($numC);
@@ -22,7 +22,7 @@ switch($critere){
         // recherche par id
         $listeRestos = getClientByIdC($idC);
         break;    
-}
+}*/
 
 $titre = "Recherche d'un client";
 include "$racine/vue/entete.html";
