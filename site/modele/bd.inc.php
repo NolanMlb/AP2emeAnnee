@@ -4,7 +4,6 @@
             $racine="..";
         }
         
-        session_start();
         if (isset($_POST['utilisateur']) && isset($_POST['password'])){
 
             // connexion a la base de donnée

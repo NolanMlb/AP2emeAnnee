@@ -1,17 +1,17 @@
 <?php
 
     //include les fichiers
-    include "$racine/modele/bd.inc.php";
-    include "$racine/controleur/connexion.php";
-    include "$racine/vue/entete.html";
-    
+    include "../modele/bd.inc.php";
+    include "../controleur/connexion.php";
+    include "../vue/entete.html";
+    include "../vue/pied.html";
     //recuperer l'id
     $id_auto=0;
 
     //interprétation pour la base de donnée
     $mysqli = new mysqli("localhost", "root", "root", "ap2eme");
     $mysqli -> set_charset("utf-8");
-    $requete="INSERT INTO intervention VALUES ($id_auto,'$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]')";
+    $requete="INSERT INTO intervention VALUES ($id_auto,'$_POST[dateVisite]','$_POST[heureVisite]','$_POST[idClient]','$_POST[idTechnicien]','$_POST[etatIntervention]','')";
     $resultat = mysqli_query($mysqli,$requete);
 
     
@@ -23,4 +23,4 @@
         echo "Erreur, je n'ai pas reussie à ajouté le rdv !<br> ";
     }
 ?>
-<a href="../vue/accueil.html">Retour a la page d'accueil</a>
+<a href="../vue/vueGestionnaire.php">Retour a la page d'accueil</a>
