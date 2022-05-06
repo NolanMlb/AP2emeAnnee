@@ -17,7 +17,7 @@ public class ParametresBDD {
         nomUtilisateur = "root";
         motDePasse = "root";
         serveurBDD = "ap2eme";
-        driverSGBD = "jdbc:mysql://localhost:8888";
+        driverSGBD = "jdbc:mysql://localhost:8889/";
     }
 
     public String getNomUtilisateur() {
