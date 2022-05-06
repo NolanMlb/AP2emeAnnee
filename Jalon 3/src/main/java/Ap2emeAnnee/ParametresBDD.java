@@ -16,9 +16,15 @@ public class ParametresBDD {
     public ParametresBDD(){
         nomUtilisateur = "root";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         motDePasse = "";
         serveurBDD = "ap3";
         driverSGBD = "jdbc:mysql://localhost/";
+=======
+        motDePasse = "root";
+        serveurBDD = "ap2eme";
+        driverSGBD = "jdbc:mysql://localhost:8889/";
+>>>>>>> Stashed changes
 =======
         motDePasse = "root";
         serveurBDD = "ap2eme";
