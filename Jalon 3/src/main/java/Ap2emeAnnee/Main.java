@@ -12,8 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ParametresBDD unParametre = new ParametresBDD("root", "", "ap2eme",
-                "jdbc:mysql:///");
+        ParametresBDD unParametre = new ParametresBDD("root", "root", "ap2eme",
+                "jdbc:mysql:///localhost:8888");
 
         Connection connexion = null;
         try {
