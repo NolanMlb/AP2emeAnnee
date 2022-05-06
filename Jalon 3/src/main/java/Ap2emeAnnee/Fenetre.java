@@ -1,5 +1,7 @@
 package cashcash;
 
+import com.itextpdf.text.DocumentException;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -23,11 +25,24 @@ public class Fenetre implements ActionListener {
     private JButton btnPdf;
     private JButton btnContrat;
     private JButton btnRetour;
+    private JButton btnRenouvellement;
+    private JButton btnGenXml;
+    private JButton btnGenPdf;
 
+    //listes déroulantes
+    private JList listContratMAJ;
+    private JList listClients;
+    private JList listContrats;
+
+    //connexion à la bdd
     private Connection cnx;
 
     //variable permettant de savoir sur quelle page on se situe, par défaut, la page d'accueil
     private String pageActuelle = "accueil";
+
+    //variables permettant le contact avec les autres classes
+    private Contrat c;
+    private Client cl;
 
     //constructeur, permet la génération de la page d'accueil
     public Fenetre(Connection connexion){
@@ -39,6 +54,8 @@ public class Fenetre implements ActionListener {
         f.setVisible(true);
 
         cnx = connexion;
+        c = new Contrat(cnx);
+        cl = new Client(cnx);
     }
 
     //permet la génération d'une nouvelle fenêtre
@@ -100,15 +117,61 @@ public class Fenetre implements ActionListener {
     }
 
     public void xml(){
+        String[][] clients = cl.getClients();
 
+        String[] affichageSelect = new String[clients.length];
+
+        for(int i =0; i<clients.length; i++){
+            affichageSelect[i] = clients[i][1];
+        }
+
+
+        listClients = new JList(affichageSelect);
+        listClients.setBounds(100, 100, 150, clients.length*18);
+        f.add(listClients);
+
+        btnGenXml = new JButton("Générer le fichier XML");
+        btnGenXml.setBounds(300, 100, 150, 50);
+        btnGenXml.addActionListener(this);
+        f.add(btnGenXml);
     }
 
     public void pdf(){
+        String[][] contratsFinis = c.getContratMaintenanceTermine();
 
+        String[] affichageSelect = new String[contratsFinis.length];
+
+        for(int i =0; i<contratsFinis.length; i++){
+            affichageSelect[i] = contratsFinis[i][4];
+        }
+
+        listContrats = new JList(affichageSelect);
+        listContrats.setBounds(100, 100, 150, contratsFinis.length*18);
+        f.add(listContrats);
+
+        btnGenPdf = new JButton("Générer le courrier");
+        btnGenPdf.setBounds(300, 100, 150, 50);
+        btnGenPdf.addActionListener(this);
+        f.add(btnGenPdf);
     }
 
     public void contrat(){
-        Contrat c = new Contrat(cnx);
+        String[][] contratsFinis = c.getContratMaintenanceTermine();
+
+        String[] affichageSelect = new String[contratsFinis.length];
+
+        for(int i =0; i<contratsFinis.length; i++){
+            affichageSelect[i] = contratsFinis[i][4];
+        }
+
+        listContratMAJ = new JList(affichageSelect);
+        listContratMAJ.setBounds(100, 100, 150, contratsFinis.length*18);
+        f.add(listContratMAJ);
+
+        btnRenouvellement = new JButton("Renouveler le contrat");
+        btnRenouvellement.setBounds(300, 100, 150, 50);
+        btnRenouvellement.addActionListener(this);
+        f.add(btnRenouvellement);
 
     }
 
@@ -117,13 +180,34 @@ public class Fenetre implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnXml){
             pageActuelle = "xml";
+            displayFrame();
         } else if(e.getSource() == btnPdf){
             pageActuelle = "pdf";
+            displayFrame();
         } else if(e.getSource() == btnContrat){
             pageActuelle = "contrat";
-        } else {
+            displayFrame();
+        } else if(e.getSource() == btnRetour){
             pageActuelle = "accueil";
+            displayFrame();
+        } else if(e.getSource() == btnRenouvellement){
+            String contratChoisi = (String) listContratMAJ.getSelectedValue();
+            c.updateContratMaintenance(c.getNumClientByRaisonSociale(contratChoisi));
+        } else if(e.getSource() == btnGenXml){
+            int contratChoisi = listClients.getSelectedIndex() + 1;
+            String[][] infosClient = cl.getInformationsClient(contratChoisi);
+            CreerXML xml = new CreerXML(infosClient);
+        } else if(e.getSource() == btnGenPdf){
+            String contratChoisi = (String) listContrats.getSelectedValue();
+            String[][] numSerieMateriel = c.getNumSerieByClient(c.getNumClientByRaisonSociale(contratChoisi));
+            try {
+                CreerPDF pdf = new CreerPDF(numSerieMateriel[0][0]);
+            } catch (DocumentException ex) {
+                ex.printStackTrace();
+            }
+        } else { //seul moyen de corriger le bug du bouton de retour de pdf
+            pageActuelle = "accueil";
+            displayFrame();
         }
-        displayFrame();
     }
 }
