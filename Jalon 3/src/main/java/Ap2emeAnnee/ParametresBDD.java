@@ -1,4 +1,4 @@
-package cashcash;
+package Ap2emeAnnee;
 
 public class ParametresBDD {
     private String nomUtilisateur;

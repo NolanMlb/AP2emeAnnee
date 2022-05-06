@@ -1,12 +1,12 @@
-package cashcash;
+package Ap2emeAnnee;
 
 import java.sql.*;
 import java.util.Arrays;
 import java.util.Date;
 import javax.swing.*;
 
-import cashcash.Fenetre;
-import cashcash.ParametresBDD;
+import Ap2emeAnnee.Fenetre;
+import Ap2emeAnnee.ParametresBDD;
 
 public class Main {
 
