@@ -12,8 +12,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+<<<<<<< Updated upstream
         ParametresBDD unParametre = new ParametresBDD("root", "", "ap3",
                 "jdbc:mysql:///");
+=======
+        ParametresBDD unParametre = new ParametresBDD("root", "root", "ap2eme",
+                "jdbc:mysql://localhost:8889/");
+>>>>>>> Stashed changes
 
         Connection connexion = null;
         try {
