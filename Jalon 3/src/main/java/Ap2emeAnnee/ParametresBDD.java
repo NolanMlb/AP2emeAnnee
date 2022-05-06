@@ -16,7 +16,7 @@ public class ParametresBDD {
     public ParametresBDD(){
         nomUtilisateur = "root";
         motDePasse = "";
-        serveurBDD = "ap3";
+        serveurBDD = "ap2eme";
         driverSGBD = "jdbc:mysql://localhost/";
     }
 

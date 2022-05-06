@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ParametresBDD unParametre = new ParametresBDD("root", "", "ap3",
+        ParametresBDD unParametre = new ParametresBDD("root", "", "ap2eme",
                 "jdbc:mysql:///");
 
         Connection connexion = null;
