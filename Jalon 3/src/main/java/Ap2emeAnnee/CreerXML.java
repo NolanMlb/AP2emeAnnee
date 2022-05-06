@@ -33,7 +33,7 @@ public class CreerXML {
 	 
 	        // numéro de série
 	        Attr attr = doc.createAttribute("Numero");
-	        attr.setValue(client[0][4]);
+	        attr.setValue(client[0][0]);
 	        nserie.setAttributeNode(attr);
 	 
 	        // date de vente
