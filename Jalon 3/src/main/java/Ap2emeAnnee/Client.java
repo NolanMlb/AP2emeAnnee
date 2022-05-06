@@ -47,7 +47,7 @@ public class Client {
     }
 
     public String[][] getInformationsClient(int numClient){
-        String query = "SELECT numSerie, dateVente, dateInstall, numContrat, dateSignature, dateEcheance, materiel.ref, raisonSocialeClient FROM client, materiel, contratmaintenance WHERE materiel.numClient = client.numClient AND contratmaintenance.numClient = client.numClient AND client.numClient = "+numClient; //requête sql
+        String query = "SELECT numSerie, dateVente, dateInstall, numContrat, dateSignatureContrat, dateEcheanceContrat, materiel.ref, raisonSocialeClient FROM client, materiel, contratmaintenance WHERE materiel.numClient = client.numClient AND contratmaintenance.numClient = client.numClient AND client.numClient = "+numClient; //requête sql
 
         String[][] informationsClient = executionRequete(query, 8); // le 2e paramètre doit être équivalent au nombre de colonnes que vous avez mis dans la requête (entre le SELECT et le FROM)
 
