@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 17 jan. 2022 à 13:17
+-- Généré le : sam. 07 mai 2022 à 10:43
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -76,10 +76,10 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`idClient`, `numClient`, `nomClient`, `prenomClient`, `raisonSocialeClient`, `sirenClient`, `codeApeClient`, `telClient`, `adresseClient`, `mailClient`, `dureeDeplacementClient`, `distanceKmClient`, `contratmaintenance`, `idAgence`) VALUES
-(1, 1, 'Marande\r\n', 'Albert', 'Marié', 'MA', '5252', '0601020304', '219 rue du l\'ombrer\r\n59200 Tourcoing', 'Alerbermarand@gastonberger.fr', '00:14:00', 10, 1, 1),
-(2, 2, 'Trolain', 'Elio', 'Celibataire', 'LE', '4564', '0352659684', '12 rue du falanpin\r\n59175 Roncq.', 'Eliotrolain@gastonberger.fr', '00:20:00', 25, 2, 2),
-(3, 3, 'Blandin', 'Benoit', 'Marié', 'BB', '2563', '0678876545', '10 rue de la tarte', 'Benoit.blandin@gmail.com', '00:08:00', 10, 1, 1),
-(4, 4, 'Roba', 'Luca', 'Celibataire', 'RL', '6969', '0654243421', '201 rue de gaston', 'luca.roba@gmail.com', '00:20:00', 19, 2, 2);
+(1, 1, 'Marande\r\n', 'Albert', 'AlbertMarande', 'MA', '5252', '0601020304', '219 rue du l\'ombrer\r\n59200 Tourcoing', 'Alerbermarand@gastonberger.fr', '00:14:00', 10, 1, 1),
+(2, 2, 'Trolain', 'Elio', 'ElioTrolain', 'LE', '4564', '0352659684', '12 rue du falanpin\r\n59175 Roncq.', 'Eliotrolain@gastonberger.fr', '00:20:00', 25, 2, 2),
+(3, 3, 'Blandin', 'Benoit', 'BlandinBenoit', 'BB', '2563', '0678876545', '10 rue de la tarte', 'Benoit.blandin@gmail.com', '00:08:00', 10, 1, 1),
+(4, 4, 'Roba', 'Luca', 'LucaRoba', 'RL', '6969', '0654243421', '201 rue de gaston', 'luca.roba@gmail.com', '00:20:00', 19, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -102,15 +102,17 @@ CREATE TABLE IF NOT EXISTS `contratmaintenance` (
   KEY `FK_contratMaintenance_client_idclient_client` (`client_idclient`),
   KEY `numClient` (`numClient`),
   KEY `refContrat` (`refContrat`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=87656987 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `contratmaintenance`
 --
 
 INSERT INTO `contratmaintenance` (`idContrat`, `numContrat`, `dateSignatureContrat`, `dateEcheanceContrat`, `numClient`, `refContrat`, `idContrat_typeContrat`, `client_idclient`) VALUES
-(1, 1, '2021-12-01', '2021-12-12', 1, 'TR3654', 1, 1),
-(2, 2, '2021-11-01', '2021-12-18', 2, 'RQ3989', 2, 2);
+(1, 1, '2022-06-05', '2023-05-07', 1, 'TR3654', 1, 1),
+(2, 2, '2021-11-01', '2023-05-07', 2, 'RQ3989', 2, 2),
+(1233421, 3, '2022-04-04', '2023-05-07', 3, 'BB3', 1, 3),
+(87656986, 4, '2022-05-10', '2023-05-07', 4, 'RL4', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -179,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   PRIMARY KEY (`idIntervention`),
   KEY `FK_intervention_idClient_client` (`idClient`),
   KEY `FK_intervention_idTechnicien_technicien` (`idTechnicien`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `intervention`
@@ -198,7 +200,15 @@ INSERT INTO `intervention` (`idIntervention`, `dateVisite`, `heureVisite`, `idCl
 (34, '2022-03-22', '12:00', 1, 1, 'JSP', ''),
 (35, '2022-01-15', '10:33', 1, 1, 'Rectification du contrat', ''),
 (36, '2022-01-15', '10:33', 1, 1, 'Rectification du contrat', ''),
-(37, '2022-01-15', '12:00', 1, 1, 'La plomberie ', '');
+(37, '2022-01-15', '12:00', 1, 1, 'La plomberie ', ''),
+(38, '2002-03-12', '12:00', 1, 1, 'A faire', ''),
+(39, '2022-03-12', '14:00', 1, 1, 'A faire', ''),
+(40, '2022-03-17', '12:00', 1, 1, 'A faire', ''),
+(41, '2022-03-17', '12:00', 1, 1, 'A faire', ''),
+(42, '2022-03-17', '19:00', 2, 2, 'A faire', ''),
+(43, '2022-05-23', '15:00', 2, 2, 'Gestion du parc informatique', ''),
+(44, '2022-05-05', '14:18', 4, 2, 'Branchement ethernet', ''),
+(45, '2022-05-11', '12:00', 4, 2, 'Branchement', '');
 
 -- --------------------------------------------------------
 
@@ -224,14 +234,17 @@ CREATE TABLE IF NOT EXISTS `materiel` (
   KEY `FK_materiel_idMateriel_typeMateriel` (`idMateriel_typeMateriel`),
   KEY `FK_materiel_idClient_client` (`idClient`),
   KEY `numClient` (`numClient`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `materiel`
 --
 
 INSERT INTO `materiel` (`idMateriel`, `numSerie`, `dateVente`, `dateInstall`, `prixVente`, `emplacement`, `ref`, `numClient`, `contratmaintenance`, `idMateriel_typeMateriel`, `idClient`) VALUES
-(1, '123456789', '2021-12-05', '2021-12-09', 12, 'E4', 'E235641', 1, 1, 1, 1);
+(1, '123456789', '2021-12-05', '2021-12-09', 12, 'E4', 'E235641', 1, 1, 1, 1),
+(2, '98720912', '2022-05-18', '2022-06-12', 220, 'Gauche', 'BB3', 3, 2, 1, 3),
+(3, '98720912', '2022-05-24', '2022-06-12', 60, 'Gauche', 'ET3', 2, 1, 1, 2),
+(4, '98EY98273', '2022-05-27', '2022-08-15', 12, 'Droite', 'RB4', 4, 2, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -335,16 +348,30 @@ INSERT INTO `utilisateur` (`nomUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `valideintervention`
+-- Structure de la table `validerintervention`
 --
 
-DROP TABLE IF EXISTS `valideintervention`;
-CREATE TABLE IF NOT EXISTS `valideintervention` (
+DROP TABLE IF EXISTS `validerintervention`;
+CREATE TABLE IF NOT EXISTS `validerintervention` (
   `idIntervention` int(11) NOT NULL,
   `etatIntervention` varchar(255) NOT NULL,
   `commentaire` varchar(255) NOT NULL,
-  `tempPasse` varchar(50) NOT NULL
+  `tempsPasse` varchar(50) NOT NULL,
+  KEY `idIntervention` (`idIntervention`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `validerintervention`
+--
+
+INSERT INTO `validerintervention` (`idIntervention`, `etatIntervention`, `commentaire`, `tempsPasse`) VALUES
+(35, 'SZZASSA', 'SAZSAZ', 'SAZSZ'),
+(35, 'SZZASSA', 'SAZSAZ', 'SAZSZ'),
+(35, 'OINJ', 'OKJ', 'OHJ'),
+(35, 'OINJ', 'OKJ', 'OHJ'),
+(37, 'FINIE', 'exÃ©cuter', '1:30:00'),
+(31, 'EN COURS', 'passage du pomblier', '01:20:00'),
+(35, 'EN COURS', 'Gestion de la plomberie', '1:00:00');
 
 --
 -- Contraintes pour les tables déchargées

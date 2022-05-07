@@ -63,7 +63,7 @@ public class Contrat {
     public String[][] getContratMaintenanceTermine(){
         String query = "SELECT numContrat, dateEcheanceContrat, client.numClient, refContrat, raisonSocialeClient FROM contratmaintenance, client WHERE dateEcheanceContrat > CURRENT_DATE() AND contratmaintenance.numClient = client.numClient"; //requête sql
 
-        String[][] contratMaitenanceTermine = executionRequete(query, 5); // le 2e paramètre doit être équivalent au nombre de colonnes que vous avez mis dans la requête (entre le SELECT et le FROM)
+        String[][] contratMaitenanceTermine = executionRequete(query, 5); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)
 
         return contratMaitenanceTermine;
     }
@@ -72,12 +72,13 @@ public class Contrat {
         String query = "UPDATE contratmaintenance SET dateEcheanceContrat = DATE_ADD(CURRENT_DATE(), INTERVAL 1 YEAR) WHERE numContrat ="+num; //requête sql
 
         executionRequete(query);
+        System.out.println("Contrat maintenance mis à jour "+num);
     }
 
     public String[][] getNumSerieByClient(int numClient){
         String query = "SELECT numSerie FROM materiel WHERE numClient = "+numClient; //requête sql
 
-        String[][] numSerieMateriel = executionRequete(query, 1); // le 2e paramètre doit être équivalent au nombre de colonnes que vous avez mis dans la requête (entre le SELECT et le FROM)
+        String[][] numSerieMateriel = executionRequete(query, 1); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)
 
         return numSerieMateriel;
     }
@@ -85,7 +86,7 @@ public class Contrat {
     public int getNumClientByRaisonSociale(String raisonSocialeClient){
         String query = "SELECT numClient FROM client WHERE raisonSocialeClient = '"+raisonSocialeClient+"'"; //requête sql
 
-        String[][] numClientArray = executionRequete(query, 1); // le 2e paramètre doit être équivalent au nombre de colonnes que vous avez mis dans la requête (entre le SELECT et le FROM)
+        String[][] numClientArray = executionRequete(query, 1); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)
 
         int numClient = Integer.parseInt(numClientArray[0][0]);
 
