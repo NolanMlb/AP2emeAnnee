@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <repertoire>
-    <nserie Numero="123456789">
-        <dateVente>2021-12-05</dateVente>
-        <dateInstallation>2021-12-09</dateInstallation>
-        <numeroContrat>1</numeroContrat>
-        <dateSignatureContrat>2022-06-05</dateSignatureContrat>
+    <nserie Numero="98720912">
+        <dateVente>2022-05-24</dateVente>
+        <dateInstallation>2022-06-12</dateInstallation>
+        <numeroContrat>2</numeroContrat>
+        <dateSignatureContrat>2021-11-01</dateSignatureContrat>
         <dateEcheanceContrat>2023-05-07</dateEcheanceContrat>
-        <refContrat>E235641</refContrat>
-        <raisonSociale>AlbertMarande</raisonSociale>
+        <refContrat>ET3</refContrat>
+        <raisonSociale>ElioTrolain</raisonSociale>
     </nserie>
 </repertoire>
