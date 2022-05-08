@@ -29,6 +29,8 @@ if(isset($_POST['valider'])){
             $MotDePasse = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
             //on se connecte à la base de données:
             $mysqli = mysqli_connect("localhost", "root", "root", "ap2eme");
+           
+
             //on vérifie que la connexion s'effectue correctement:
             if(!$mysqli){
                 
@@ -36,18 +38,21 @@ if(isset($_POST['valider'])){
                 include "../modele/bd.inc.php";
                 echo "Erreur de connexion à la base de données.";
             } else {
+                
+                $MotDePasse = hash("sha1", $MotDePasse);
+               
                 //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
                 $Requete = mysqli_query($mysqli,"SELECT * FROM utilisateur WHERE nomUtilisateur = '".$Pseudo."' AND mdpUtilisateur = '".$MotDePasse."'");
                 //si il y a un résultat, mysqli_num_rows() nous donnera alors 1
                 //si mysqli_num_rows() retourne 0 c'est qu'il a trouvé aucun résultat
                 if(mysqli_num_rows($Requete) == 0) {
-                    
+                   
                     include "../vue/pied.html";
                     include "../modele/bd.inc.php";
                     echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
-                } 
                 
-                else{
+                  
+                } else{
                     $_SESSION['pseudo'] = $Pseudo;
                     $RequeteRole="SELECT roleUtilisateur FROM utilisateur WHERE nomUtilisateur ='".$Pseudo."' AND mdpUtilisateur = '".$MotDePasse."'";
                     $resultat = mysqli_query($mysqli,$RequeteRole);

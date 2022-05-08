@@ -14,10 +14,11 @@ public class ParametresBDD {
     }
 
     public ParametresBDD(){
+        //Changer mdp et driver pour la connexion -> Nolan
         nomUtilisateur = "root";
-        motDePasse = "";
+        motDePasse = "root";
         serveurBDD = "ap2eme";
-        driverSGBD = "jdbc:mysql://localhost/";
+        driverSGBD = "jdbc:mysql://localhost:8889/";
     }
 
     public String getNomUtilisateur() {
