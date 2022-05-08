@@ -53,7 +53,9 @@ public class Fenetre implements ActionListener {
         f.setLayout(null);
         f.setVisible(true);
 
+        //récupération de la connexion
         cnx = connexion;
+        //initialisation des classes client et contrat
         c = new Contrat(cnx);
         cl = new Client(cnx);
     }
@@ -92,7 +94,7 @@ public class Fenetre implements ActionListener {
     //génère la page d'accueil
     public void accueil(){
         btnXml = new JButton("Génération de fichier xml");
-        btnXml.setBounds(200, 100, 250, 50);
+        btnXml.setBounds(200, 100, 250, 50); //position x et y et la taille du bouton
         btnXml.addActionListener(this);
 
         btnPdf = new JButton("Génération de courrier de relance");

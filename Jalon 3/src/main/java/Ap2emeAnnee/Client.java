@@ -21,7 +21,9 @@ public class Client {
 
                 //on stocke dans arrayY l'index de la dernière ligne du résultat, on se replace ensuite à la 1ère ligne.
                 int arrayY = 0;
+                //se déplacer vers la dernière ligne et récupération de l'index de la ligne
                 if(rs.last()) arrayY = rs.getRow();
+                //on se replace au début
                 rs.beforeFirst();
 
                 //on crée un tableau à 2 dimensions ayant pour hauteur, le nombre de lignes retournées par la requête et pour largeur, le nombre d'occurences retournées (voir la requête sql)
@@ -43,6 +45,7 @@ public class Client {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //si le try ne retourne rien, on retourne un null
         return null;
     }
 
@@ -55,6 +58,7 @@ public class Client {
     }
 
     public String[][] getClients(){
+        //double crochets = ligne et collone
         String query = "SELECT numClient, raisonSocialeClient FROM client"; //requête sql
 
         String[][] clients = executionRequete(query, 2); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)

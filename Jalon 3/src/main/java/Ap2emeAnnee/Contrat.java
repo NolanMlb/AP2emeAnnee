@@ -63,6 +63,7 @@ public class Contrat {
     public String[][] getContratMaintenanceTermine(){
         String query = "SELECT numContrat, dateEcheanceContrat, client.numClient, refContrat, raisonSocialeClient FROM contratmaintenance, client WHERE dateEcheanceContrat > CURRENT_DATE() AND contratmaintenance.numClient = client.numClient"; //requête sql
 
+
         String[][] contratMaitenanceTermine = executionRequete(query, 5); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)
 
         return contratMaitenanceTermine;
@@ -70,13 +71,14 @@ public class Contrat {
 
     public void updateContratMaintenance(int num){
         String query = "UPDATE contratmaintenance SET dateEcheanceContrat = DATE_ADD(CURRENT_DATE(), INTERVAL 1 YEAR) WHERE numContrat ="+num; //requête sql
-
+        // prend la date actuelle et qui rajoute 1 année en fonction de la date.
         executionRequete(query);
         System.out.println("Contrat maintenance mis à jour "+num);
     }
 
     public String[][] getNumSerieByClient(int numClient){
         String query = "SELECT numSerie FROM materiel WHERE numClient = "+numClient; //requête sql
+        //récupère le num serie par rapport au client
 
         String[][] numSerieMateriel = executionRequete(query, 1); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)
 
@@ -85,7 +87,7 @@ public class Contrat {
 
     public int getNumClientByRaisonSociale(String raisonSocialeClient){
         String query = "SELECT numClient FROM client WHERE raisonSocialeClient = '"+raisonSocialeClient+"'"; //requête sql
-
+        //récupère le num client en fonction de la raison sociale.
         String[][] numClientArray = executionRequete(query, 1); // le 2e paramètre doit être équivalent au nombre de colonnes dans la requête (entre le SELECT et le FROM)
 
         int numClient = Integer.parseInt(numClientArray[0][0]);
