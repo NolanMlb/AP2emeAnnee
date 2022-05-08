@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //parametre de connexion de la BDD
+        //parametre de connexion de la BDD (à changer pour Nolan)
         ParametresBDD unParametre = new ParametresBDD("root", "", "ap2eme",
                 "jdbc:mysql:///");
 
