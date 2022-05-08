@@ -14,6 +14,7 @@ public class ParametresBDD {
     }
 
     public ParametresBDD(){
+        //Changer mdp et driver pour la connexion -> Nolan
         nomUtilisateur = "root";
         motDePasse = "";
         serveurBDD = "ap2eme";

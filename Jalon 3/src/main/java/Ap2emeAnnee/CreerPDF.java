@@ -1,6 +1,7 @@
 package Ap2emeAnnee;
 
-//import (Pour Nolan à ajouter le jour de l'épreuve dans le dossier Document/Document Macbook/EpreuveE5/Import)
+//import (Pour Nolan à ajouter le jour de l'épreuve : import itext et sql ->
+//dans le dossier Document/Document Macbook/EpreuveE5/Import)
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
