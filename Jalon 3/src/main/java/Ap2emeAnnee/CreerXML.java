@@ -82,7 +82,7 @@ public class CreerXML {
 	        Transformer transformer = transformerFactory.newTransformer();
 	        transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // aller à la ligne suivante
 	        DOMSource source = new DOMSource(doc);
-	        StreamResult resultat = new StreamResult(new File("test.xml"));
+	        StreamResult resultat = new StreamResult(new File(String.format("%s.xml", client[0][0])));
 	 
 	        transformer.transform(source, resultat);
 	 
